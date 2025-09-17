@@ -1,0 +1,28 @@
+<h1>Real Time Products</h1>
+
+<section>
+  <h2>Agregar producto (por WebSocket)</h2>
+  <form id="productForm">
+    <input name="title" placeholder="title" required />
+    <input name="price" placeholder="price" type="number" required />
+    <input name="code" placeholder="code" required />
+    <input name="stock" placeholder="stock" type="number" required />
+    <input name="category" placeholder="category" />
+    <button type="submit">Agregar</button>
+  </form>
+</section>
+
+<section>
+  <h2>Productos</h2>
+  <ul id="productsList">
+    {{#each products}}
+      <li data-id="{{this.id}}">
+        <strong>{{this.title}}</strong> - ${{this.price}} 
+        <button class="deleteBtn" data-id="{{this.id}}">Eliminar</button>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realtimeProducts.js"></script>
